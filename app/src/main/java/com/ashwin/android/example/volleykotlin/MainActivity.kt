@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
 
         queue = Volley.newRequestQueue(this)
 
-        swipetorefresh_layout.setOnRefreshListener {
+        swiperefresh_layout.setOnRefreshListener {
             request()
         }
     }
@@ -34,11 +34,11 @@ class MainActivity : AppCompatActivity() {
             null,
             Response.Listener<JSONObject> { response ->
                 response_textview.text = "${response.toString(2)}"
-                swipetorefresh_layout.isRefreshing = false
+                swiperefresh_layout.isRefreshing = false
             },
             Response.ErrorListener {
                 response_textview.text = "That didn't work!"
-                swipetorefresh_layout.isRefreshing = false
+                swiperefresh_layout.isRefreshing = false
             }
         )
 
